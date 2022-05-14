@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MyOnlineShop.Ui.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+<div class="container">
+    <div class="main-body">
+        <h1>Product List</h1>
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProductName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Picture)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UnitPrice)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Discontinued)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductName)
+                                    </td>
+                                    <td>
+                                        <img width="100" src="data:image;base64, @item.PictureStr" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CategoryName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UnitsInStock)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Discontinued)
+                                    </td>
+                                    <td>
+                                        <a href="/product/index/@item.Id" class="btn btn-warning">
+                                            <i class="fa fa-edit"></i>Product page
+                                        </a>
+                                        <a href="/product/edit/@item.Id" class="btn btn-warning">
+                                            <i class="fa fa-edit"></i>Edit
+                                        </a>
+                                        <a href="/product/delete/@item.Id" class="btn btn-danger">
+                                            <i class="material-icons"></i>Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a class="btn btn-info " href="/product/create">Create Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

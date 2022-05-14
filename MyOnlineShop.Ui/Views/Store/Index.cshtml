@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model MyOnlineShop.Ui.Models.StoreViewModel
+@section css_section
+    {
+<!-- Page level plugins -->
+<script src="~/css/customerindex.css"></script>
+
+}
+<hr />
+<div class="container">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <h1>Store Profile</h1>
+        <!-- /Breadcrumb -->
+
+
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img width="100" src="data:image;base64, @Model.PictureStr" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Store Name</h6>
+                        </div>
+                        <div class="col-sm-9">
+                            @Model.StoreName
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">City</h6>
+                        </div>
+                        <div class="col-sm-9 ">
+                            @Model.City
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Address</h6>
+                        </div>
+                        <div class="col-sm-9 ">
+                            @Model.Address
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a class="btn btn-info " href="/store/edit">Edit Store Profile</a>
+                            <a class="btn btn-info " href="/customer/edit">Orders</a>
+                            <a class="btn btn-info " href="/product/list">Products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
